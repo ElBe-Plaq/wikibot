@@ -1,0 +1,27 @@
+{
+	"wiki": "wikipedia",
+	"language": "en",
+
+	"edit message prefix": "Bot: ",
+
+	"modules": {
+		"newsletter": {
+			"subscriber list": "",
+			"subscriber splitter": "",
+			"newsletter template": ""
+		}
+	},
+
+	"translations": {
+		"de": {
+			"newsletter": {
+				"page edited": "Newsletter [[%s]] versendet."
+			}
+		},
+		"en": {
+			"newsletter": {
+				"page edited": "Newsletter [[%s]] sent."
+			}
+		}
+	}
+}
