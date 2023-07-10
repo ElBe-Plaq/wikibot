@@ -1,6 +1,6 @@
 [project]
 name = "wikibot"
-version = "1.0.0"
+version = "1.0.1"
 authors = [
     { name="ElBe-Plaq", email="elbe.dev.plaq@gmail.com" },
 ]

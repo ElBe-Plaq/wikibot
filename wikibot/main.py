@@ -35,7 +35,7 @@ from modules import newsletter  # pylint: disable=E0401
 # CONSTANTS #
 #############
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 ########
 # MAIN #
@@ -43,10 +43,24 @@ VERSION = "1.0.0"
 
 parser = argparse.ArgumentParser(
     prog="wikibot",
-    description="Does stuff",
+    description="Wikibot is a simple mediawikibot currently supporting newsletters. You can use it like a module to implement your own newsletter features.",
     epilog="(C) Copyright by ElBe Development 2023.",
+    add_help=False,
 )
-parser.add_argument("-v", "--version", action="version", version=f"wikibot v{VERSION}")
+parser.add_argument(
+    "-h",
+    "--help",
+    action="help",
+    default=argparse.SUPPRESS,
+    help="Show this help message and exit.",
+)
+parser.add_argument(
+    "-v",
+    "--version",
+    action="version",
+    version=f"wikibot v{VERSION}",
+    help="Show program's version number and exit.",
+)
 parser.add_argument(
     "--newsletter", action="store_true", help="Activates the newsletter module"
 )
