@@ -29,13 +29,19 @@ DEALINGS IN THE SOFTWARE.
 
 import argparse
 
-from modules import newsletter  # pylint: disable=E0401
+import pywikibot
+
+from config import CONFIG
+from modules import newsletter as newsletter_module
+from modules import discussion_header as discussion_header_module
+
 
 #############
 # CONSTANTS #
 #############
 
-VERSION = "1.0.1"
+VERSION = "1.1.0"
+
 
 ########
 # MAIN #
@@ -43,7 +49,7 @@ VERSION = "1.0.1"
 
 parser = argparse.ArgumentParser(
     prog="wikibot",
-    description="Wikibot is a simple mediawikibot currently supporting newsletters. You can use it like a module to implement your own newsletter features.",
+    description="Wikibot is a simple mediawiki bot currently supporting newsletters and discussion headers. You can use it like a module to implement your own features.",
     epilog="(C) Copyright by ElBe Development 2023.",
     add_help=False,
 )
@@ -64,8 +70,28 @@ parser.add_argument(
 parser.add_argument(
     "--newsletter", action="store_true", help="Activates the newsletter module"
 )
+parser.add_argument(
+    "--discussion-header",
+    action="store_true",
+    help="Activates the discussion header module",
+)
 args = parser.parse_args()
 
 if __name__ == "__main__":
-    if args.newsletter:
-        newsletter.send_newsletter(newsletter.subscribers())
+    try:
+        if args.newsletter:
+            newsletter = newsletter_module.Newsletter()
+            newsletter.subscribers()
+            newsletter.send_newsletter()
+        if args.discussion_header:
+            discussion_header = discussion_header_module.DiscussionHeader()
+            discussion_header.get_sections()
+            discussion_header.replace_header()
+    except pywikibot.exceptions.UnknownFamilyError:
+        print(
+            f"Error: The wiki set in `config.json` ({CONFIG['wiki']}) is not supported."
+        )
+    except pywikibot.exceptions.UnknownSiteError:
+        print(
+            f"Error: The language version set in `config.json` ({CONFIG['language']}) was not found in wiki {CONFIG['wiki']}."
+        )

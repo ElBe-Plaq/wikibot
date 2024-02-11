@@ -1,26 +1,39 @@
 {
 	"wiki": "wikipedia",
-	"language": "en",
-
-	"edit message prefix": "Bot: ",
+	"language": "de",
 
 	"modules": {
 		"newsletter": {
-			"subscriber list": "",
-			"subscriber splitter": "",
-			"newsletter template": ""
+			"subscriberList": "Wikipedia:Jungwikipedianer/Newsletterliste",
+			"subscriberSplitter": "\n<!-- Bitte in alphabetischer Reihenfolge eintragen -->\n",
+			"newsletterTemplate": "Wikipedia:Jungwikipedianer/Newsletter"
+		},
+		"discussionHeader": {
+			"discussionPage": "Wikipedia Diskussion:Jungwikipedianer",
+			"headerPage": "Wikipedia:Jungwikipedianer/Vorlage:StatusBox",
+			"sectionFormat": "[[%(link)s|%(sectionName)s]]",
+			"sectionFormatJoin": "&nbsp;&bull;&nbsp;\n",
+			"headerFormat": "<!-- Bitte immer mit &nbsp;•&nbsp; die einzelnen Links trennen -->\n{{Benutzer:ElBe Bot/automatische Pflege}}\n\n<onlyinclude><div class=<!-- DOUBLE QUOTE -->center<!-- DOUBLE QUOTE --> style=<!-- DOUBLE QUOTE -->border: 0.5px solid black; background-image: linear-gradient(#f2f8fc, #d5dedf, #bcc4c2, #a5aba5); color:#000000;<!-- DOUBLE QUOTE -->>{{Kopf|Was uns derzeit bewegt! • Die JWP-Disk|align=center}}\n\n<!-- Hier sollen immer die aktuellen Wettbewerbe stehen! -->\n[[Wikipedia:Jungwikipedianer/Wettbewerbe/Bilderwettbewerb|Bild des Quartals]]<!--&nbsp;•&nbsp;[[Wikipedia:Jungwikipedianer/Treffen/Treffen 20##|Treffen 20##]]-->\n\n----\n\n''Auf unserer [[WD:Jungwikipedianer|Disk]]:''\n%(sections)s\n<!-- bitte auskommentieren, wenn nicht benötigt\nAktuelle [[Wikipedia: Jungwikipedianer/Abstimmung|Abstimmungen]]\n[[Wikipedia:Jungwikipedianer/Abstimmung/Abstimmung über Höchstalters|Abstimmung über Höchstalter]] (bis 31.12.2019 23:59:59)-->\n\n<div style=<!-- DOUBLE QUOTE -->text-align:left; font-size:90<!-- PERCENT -->; padding-left:.5em;<!-- DOUBLE QUOTE -->>\nStand: [{{fullurl:Wikipedia:Jungwikipedianer/Vorlage:StatusBox|diff=cur}} {{#time:j. F Y|{{REVISIONTIMESTAMP}}}}]\n</div></div></onlyinclude>\n\n[[Kategorie:Wikipedia:Vorlagen der Jungwikipedianer|StatusBox]]"
 		}
 	},
 
 	"translations": {
 		"de": {
+			"editMessagePrefix": "Bot: ",
 			"newsletter": {
-				"page edited": "Newsletter [[%s]] versendet."
+				"pageEdited": "Newsletter [[%(newsletter)s]] versendet."
+			},
+			"discussionHeader": {
+				"pageEdited": "StatusBox aktualisiert."
 			}
 		},
 		"en": {
+			"editMessagePrefix": "Bot: ",
 			"newsletter": {
-				"page edited": "Newsletter [[%s]] sent."
+				"pageEdited": "Newsletter [[%(newsletter)s]] sent."
+			},
+			"discussionHeader": {
+				"pageEdited": "Updated discussion header."
 			}
 		}
 	}

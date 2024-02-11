@@ -133,4 +133,5 @@ apicache-py3/
 throttle.ctrl
 
 user-config.py
+user-password.py
 pywikibot-*.lwp
