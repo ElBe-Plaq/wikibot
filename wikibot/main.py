@@ -79,6 +79,12 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     try:
+        site = pywikibot.Site(CONFIG["language"], CONFIG["site"])
+        run_page = pywikibot.Page(site, f"User:{pywikibot._config.usernames[CONFIG['wiki']][CONFIG['language']]}/Run")
+        
+        if run_page.text.strip().lower() != "true":
+            raise PermissionError(f"The bot was disabled on the whole wiki by [[User:{run_page.lastNonBotUser()}]]")
+        
         if args.newsletter:
             newsletter = newsletter_module.Newsletter()
             newsletter.subscribers()
